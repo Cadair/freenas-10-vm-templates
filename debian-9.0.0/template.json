@@ -1,0 +1,48 @@
+{
+    "template": {
+        "name": "debian-9.0.0", 
+        "author": "Stuart Mumford <stuart@cadair.com>", 
+        "description": "Debian 9.0.0 linux VM image", 
+        "created_at": {
+            "$date": "2017-07-08T22:33:32"
+        }, 
+        "updated_at": {
+            "$date": "2017-07-08T16:22:54"
+        }, 
+        "fetch": [
+            {
+                "name": "os", 
+                "url": "http://stuartmumford.uk/freenas-vm/debian-9.0.0.img.gz", 
+                "sha256": "de0c0e94c532ba709fedee52e1d1e7479045607f5b01e6bcce070067e8f09664",
+                "size": 1557089622
+            }
+        ]
+    }, 
+    "config": {
+        "ncpus": 1, 
+        "bootloader": "GRUB", 
+        "memsize": 1024,
+        "minmemsize": 512,
+        "boot_device": "os", 
+        "boot_partition": "msdos1"
+    }, 
+    "devices": [
+        {
+            "type": "NIC", 
+            "name": "nic", 
+            "properties": {
+                "mode": "BRIDGED"
+            }
+        }, 
+        {
+            "type": "DISK", 
+            "name": "os", 
+            "properties": {
+                "size": 10737418240, 
+                "mode": "AHCI", 
+                "source": "os"
+            }
+        }
+    ], 
+    "guest_type": "linux64"
+}
